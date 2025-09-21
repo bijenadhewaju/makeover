@@ -23,6 +23,7 @@ body {
     );
   backdrop-filter: blur(40px);
   color: black;
+  
 }
 
 .animate-marquee {

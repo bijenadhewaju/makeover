@@ -3,7 +3,7 @@ import { categories } from '../assets/assets';
 
 const ProductCategories = () => {
   return (
-    <section className="w-full py-16 px-4 flex justify-center">
+    <section className="w-full h-[200px] py-16 px-4 flex justify-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         {categories.map((cat, idx) => (
           <div

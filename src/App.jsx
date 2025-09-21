@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // ---- Component Imports ----
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 
 // ---- Page Imports ----
 import Home from "./pages/Home";
@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 function App() {
   return (
     <>
-      <Navbar />
+      <Header/>
       <div className="pt-4">
         <Routes>
           <Route path="/" element={<Home />} />
