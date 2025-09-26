@@ -1,64 +1,77 @@
 import React from "react";
 import { ShoppingCart, Gift, Truck } from "lucide-react";
 
-const MidNavbar = ({ currentIndex }) => {
+const MidNavbar = () => {
+  const items = [
+    { icon: <ShoppingCart className="text-pink-400 bg-white w-4 h-4 mr-1" />, text: "SHOPPING VOUCHER UPTO Rs. 1000" },
+    { icon: <Gift className="text-pink-400 bg-white w-4 h-4 mr-1" />, text: "SELECTABLE FREE GIFTS ON EVERY ORDER" },
+    { icon: <Truck className="text-pink-400 bg-white w-4 h-4 mr-1" />, text: "FREE DELIVERY ABOVE RS. 1000" },
+      ];
+
   return (
-    <div className="w-full h-[48px] bg-pink-400 text-pink-800 text-center font-semibold text-sm flex items-center justify-center">
+    <div className="w-full bg-pink-400 text-gray-50 font-semibold flex items-center justify-center h-8 md:h-8 overflow-hidden relative text-xs md:text-sm  tracking-widest">
       <style>{`
-        @keyframes fadeInOut {
-          0% { opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { opacity: 0; }
+        /* Fade in/out for large screens */
+        @media (min-width: 768px) {
+          @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+          }
+          .fade-text {
+            animation: fadeInOut 4s infinite;
+          }
         }
-        .fade-text {
-          animation: fadeInOut 15s infinite;
+
+        /* Slide up for small screens */
+        @media (max-width: 767px) {
+          @keyframes slideUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            10% { transform: translateY(0); opacity: 1; }
+            30% { transform: translateY(0); opacity: 1; }
+            40% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(-100%); opacity: 0; }
+          }
+          .slide-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: slideUp 9s infinite;
+          }
+          .slide-text:nth-child(1) { animation-delay: 0s; }
+          .slide-text:nth-child(2) { animation-delay: 3s; }
+          .slide-text:nth-child(3) { animation-delay: 6s; }
         }
       `}</style>
 
-      <div className="flex flex-row items-center justify-center space-x-8 w-full h-full">
-        <div className="flex items-center h-full px-4">
-          <ShoppingCart className="text-pink-400 bg-white w-[22px] h-[20px] mr-1" />
-          <span
-            className="fade-text text-gray-50 w-[250px] h-[20px] flex items-center justify-around"
-            style={{
-              animationDelay:
-                currentIndex === 0 ? "0s" : currentIndex === 1 ? "5s" : "10s",
-              opacity: currentIndex === 0 ? 1 : 0,
-              transition: "opacity 0.5s ease",
-            }}
+      {/* Large screens */}
+      <div className="max-w-[90%] mx-auto hidden md:flex flex-row items-center justify-between space-x-6 w-full">
+        {items.map((item, idx) => (
+          <div key={idx} className="flex items-center h-full px-2">
+            {item.icon}
+            <span className="fade-text">{item.text}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Small screens */}
+      <div className="md:hidden relative w-full h-full">
+        {items.map((item, idx) => (
+          <div
+            key={idx}
+            className="slide-text flex items-center justify-center"
           >
-            SHOPPING VOUCHER UPTO Rs. 1000
-          </span>
-        </div>
-        <div className="flex items-center h-full px-4">
-          <Gift className="text-pink-400 bg-white w-[22px] h-[20px] mr-1" />
-          <span
-            className="fade-text text-gray-50 w-[250px] h-[20px] flex items-center justify-center"
-            style={{
-              animationDelay:
-                currentIndex === 1 ? "0s" : currentIndex === 2 ? "5s" : "10s",
-              opacity: currentIndex === 1 ? 1 : 0,
-              transition: "opacity 0.5s ease",
-            }}
-          >
-            SELECTABLE FREE GIFTS ON EVERY
-          </span>
-        </div>
-        <div className="flex items-center h-full px-4">
-          <Truck className="text-pink-400 bg-white w-[22px] h-[20px] mr-1" />
-          <span
-            className="fade-text text-gray-50 w-[250px] h-[20px] flex items-center justify-center"
-            style={{
-              animationDelay:
-                currentIndex === 2 ? "0s" : currentIndex === 0 ? "5s" : "10s",
-              opacity: currentIndex === 2 ? 1 : 0,
-              transition: "opacity 0.5s ease",
-            }}
-          >
-            ABOVE RS. 1000 (INSIDE POKHARA)
-          </span>
-        </div>
+            {item.icon}
+            <span className="ml-1">{item.text}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

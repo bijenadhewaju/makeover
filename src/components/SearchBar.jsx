@@ -2,14 +2,13 @@ import React from "react";
 
 const SearchSection = () => {
   return (
-    <section className="w-full h-[200px] flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-b from-pink-50/50">
+    <section className="w-full mt-4 mb-4 flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-b from-pink-50/50">
       <div className="w-full max-w-3xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-2xl h-[80px] md:text-4xl mb-8 font-semibold text-gray-800">
+        <h2 className="text-2xl  md:text-4xl font-semibold text-gray-700">
           What are you looking for?
         </h2>
 
-        {/* Search Box */}
         {/* Search Box */}
         <div className="mt-6 transform transition-all duration-300 hover:scale-[1.01]">
           <div className="relative flex items-center w-full h-14 rounded-full bg-white overflow-hidden border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
