@@ -78,12 +78,6 @@ const ProductCategories = () => {
           </div>
         </div>
 
-        {/* View All Button for Mobile/Tablet */}
-        <div className="lg:hidden flex justify-center mt-4">
-          <button className="bg-pink-100 hover:bg-pink-200 text-pink-600 font-medium text-sm px-6 py-2 rounded-full transition-colors duration-300">
-            View All Categories
-          </button>
-        </div>
       </div>
     </section>
   );

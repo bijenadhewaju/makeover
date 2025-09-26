@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchSection = () => {
   return (
-    <section className="w-full mt-4 mb-4 flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-b from-pink-50/50">
+    <section className="w-full  mb-4 flex flex-col items-center justify-center py-20 px-4  bg-gradient-to-b from-pink-50/50">
       <div className="w-full max-w-3xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-2xl  md:text-4xl font-semibold text-gray-700">
