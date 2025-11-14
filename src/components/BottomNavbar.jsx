@@ -21,7 +21,7 @@ const BottomNavbar = () => {
           {categories.map((category, idx) => (
             <a
               key={idx}
-              href="#"
+             href={`/products/${category}`}
               className="hover:text-pink-600 transition-colors duration-200 whitespace-nowrap"
             >
               {category}
@@ -35,7 +35,7 @@ const BottomNavbar = () => {
             {categories.map((category, idx) => (
               <a
                 key={idx}
-                href="#"
+                href={`/products/${category}`}
                 className="hover:text-pink-600 transition-colors duration-200 whitespace-nowrap"
               >
                 {category}

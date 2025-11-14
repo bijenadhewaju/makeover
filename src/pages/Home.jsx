@@ -6,6 +6,9 @@ import FlashSale from "../components/FlashSale";
 import CouponSection from "../components/CouponSection";
 import ProductDay from "../components/ProductDay";
 import BrandSection from "../components/BrandSection";
+import Accessories from "../components/Accessories";
+import DealsSection from "../components/DealsSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -17,6 +20,8 @@ const Home = () => {
       <CouponSection />
       <ProductDay />
       <BrandSection />
+      <Accessories />
+      <DealsSection />
     </main>
   );
 };

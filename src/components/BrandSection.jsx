@@ -9,7 +9,7 @@ const BrandSection = () => {
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
           <h2 className="font-plus-jakarta-sans font-semibold text-3xl text-gray-700">
-            Best Beauty Products
+            Our Brands
           </h2>
         </div>
 
@@ -60,6 +60,11 @@ const BrandCard = ({ brand, isMobile = false }) => {
       {/* Brand Content */}
       <div className="p-4"> 
         {/* Discount Badge */}
+        <div className="mb-3"> 
+          <span className="bg-gray-100 text-gray-900 text-md ml-4 font-semibold px-3 py-1 rounded">
+            {brand.name}
+          </span>
+        </div>
         <div className="mb-3"> 
           <span className="bg-gray-100 text-gray-700 text-sm ml-4 font-semibold px-3 py-1 rounded">
             {brand.discount}
