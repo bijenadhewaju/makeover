@@ -9,12 +9,14 @@ import BrandSection from "../components/BrandSection";
 import Accessories from "../components/Accessories";
 import DealsSection from "../components/DealsSection";
 import Footer from "../components/Footer";
+import BestSellers from "../components/BestSellers";
 
 const Home = () => {
   return (
     <main className="pt-56 px-4">
       <SearchBar />
       <ProductCategories />
+      <BestSellers />
       <SideScroll />
       <FlashSale />
       <CouponSection />

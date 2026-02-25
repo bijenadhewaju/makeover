@@ -3,40 +3,39 @@ import ProductCard from "./ProductCard";
 import { ArrowRight } from "lucide-react";
 import { productAPI } from '../utils/api';
 
-const FlashSale = () => {
+const BestSellers = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchFlashSales();
+    fetchBestSellers();
   }, []);
 
-  const fetchFlashSales = async () => {
+  const fetchBestSellers = async () => {
     try {
       setLoading(true);
-      const response = await productAPI.getFlashSales({
+      const response = await productAPI.getBestSellers({
         page_size: 5,
         page_number: 1
       });
       setProducts(response.results || []);
     } catch (err) {
-      console.error('Error fetching flash sales:', err);
-      setError('Failed to load flash sales.');
+      console.error('Error fetching best sellers:', err);
+      setError('Failed to load best sellers.');
       setProducts([]);
     } finally {
       setLoading(false);
     }
   };
 
-  // Show loading skeleton
   if (loading) {
     return (
       <div className="w-full py-8">
         <div className="max-w-[90%] mx-auto">
           <div className="flex h-16 justify-between items-center mb-8">
             <h2 className="font-plus-jakarta-sans font-semibold text-2xl text-gray-700">
-              Flash Sale
+              Best Sellers
             </h2>
             <div className="flex items-center gap-2 text-pink-500 font-medium">
               Explore All
@@ -58,20 +57,19 @@ const FlashSale = () => {
     );
   }
 
-  // Show error message
   if (error && products.length === 0) {
     return (
       <div className="w-full py-8">
         <div className="max-w-[90%] mx-auto">
           <div className="flex h-16 justify-between items-center mb-8">
             <h2 className="font-plus-jakarta-sans font-semibold text-2xl text-gray-700">
-              Flash Sale
+              Best Sellers
             </h2>
           </div>
           <div className="text-center py-8 text-gray-500">
             {error}
             <button 
-              onClick={fetchFlashSales}
+              onClick={fetchBestSellers}
               className="ml-4 text-pink-500 hover:text-pink-600"
             >
               Retry
@@ -87,10 +85,10 @@ const FlashSale = () => {
       <div className="max-w-[90%] mx-auto">
         <div className="flex h-16 justify-between items-center mb-8">
           <h2 className="font-plus-jakarta-sans font-semibold text-2xl text-gray-700">
-            Flash Sale
+            Best Sellers
           </h2>
           <a 
-            href="/products?flash_sale=true"
+            href="/products?best_seller=true"
             className="flex items-center gap-2 text-pink-500 hover:text-pink-600 transition duration-200 font-medium"
           >
             Explore All
@@ -100,7 +98,7 @@ const FlashSale = () => {
 
         {products.length === 0 && !loading && (
           <div className="text-center py-8 text-gray-500">
-            No flash sale products available.
+            No best seller products available.
           </div>
         )}
 
@@ -128,4 +126,4 @@ const FlashSale = () => {
   );
 };
 
-export default FlashSale;
+export default BestSellers;
