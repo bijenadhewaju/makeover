@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/proxy.js'; 
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/proxy'; 
 
 // ========== SIMPLE TOKEN FUNCTIONS ==========
 const getToken = () => localStorage.getItem('access_token');
