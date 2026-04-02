@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://64.227.179.189:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/proxy.js'; 
 
 // ========== SIMPLE TOKEN FUNCTIONS ==========
 const getToken = () => localStorage.getItem('access_token');
@@ -63,7 +63,7 @@ export const authAPI = {
   login: async (credentials) => {
     console.log('Logging in with:', credentials);
     
-    const response = await fetch(`${API_BASE_URL}/auth/login/`, {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
